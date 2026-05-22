@@ -31,6 +31,7 @@ class StockInComponent extends Component
         'price' => '',
         'type' => '',
         'brand' => '',
+        'size' => '',
         'quantity' => 0,
         'image' => null,
     ];
@@ -116,6 +117,7 @@ class StockInComponent extends Component
             'newItem.price' => 'required|numeric|min:0',
             'newItem.type' => 'required|string',
             'newItem.brand' => 'required|string',
+            'newItem.size' => 'nullable|string|max:255',
             'newItem.quantity' => 'required|integer|min:0',
             'newItem.image' => 'nullable|image|max:2048',
         ]);
@@ -132,6 +134,7 @@ class StockInComponent extends Component
                 'price' => $this->newItem['price'],
                 'type' => $this->newItem['type'],
                 'brand' => $this->newItem['brand'],
+                'size' => $this->newItem['size'],
                 'quantity' => $this->newItem['quantity'],
                 'image' => $imagePath,
                 'team_id' => $teamId,

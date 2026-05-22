@@ -88,6 +88,7 @@
                                         <div class="text-sm text-gray-600 mt-1">
                                             <p>SKU: {{ $item->sku }}</p>
                                             <p>Brand: {{ $item->brand }}</p>
+                                            @if($item->size)<p>Size: {{ $item->size }}</p>@endif
                                             <p class="mt-1">
                                                 Quantity: 
                                                 <span class="font-medium {{ $item->quantity > 0 ? 'text-green-600' : 'text-red-600' }}">
@@ -139,6 +140,10 @@
                                     <div>
                                         <label class="block text-sm font-medium text-gray-600 mb-1">Type</label>
                                         <p class="text-gray-900">{{ $selectedItem->type }}</p>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-600 mb-1">Size</label>
+                                        <p class="text-gray-900">{{ $selectedItem->size ?: '—' }}</p>
                                     </div>
                                     <div>
                                         <label class="block text-sm font-medium text-gray-600 mb-1">Cost</label>
@@ -231,6 +236,12 @@
                                     class="w-full p-2 border rounded-md focus:ring-blue-500 focus:border-blue-500">
                                 @error('newItem.brand') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
                             </div>
+                        </div>
+            
+                        <div>
+                            <input type="text" wire:model="newItem.size" placeholder="Size (e.g. 1L, 500ml, Large)" 
+                                class="w-full p-2 border rounded-md focus:ring-blue-500 focus:border-blue-500">
+                            @error('newItem.size') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
                         </div>
             
                         <div>

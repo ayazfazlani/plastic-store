@@ -24,6 +24,7 @@ class ItemList extends Component
         'price' => 0,
         'type' => '',
         'brand' => '',
+        'size' => '',
         'quantity' => 0,
     ];
     public $image;
@@ -104,6 +105,7 @@ class ItemList extends Component
             'newItem.price' => 'required|numeric|min:0',
             'newItem.type' => 'required|string|max:255',
             'newItem.brand' => 'required|string|max:255',
+            'newItem.size' => 'nullable|string|max:255',
             'newItem.quantity' => 'required|numeric|min:0',
             'image' => 'nullable|image|max:2048',
         ]);

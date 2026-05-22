@@ -81,7 +81,10 @@
                             <li wire:click="toggleItemSelection({{ $item->id }})" 
                                 class="p-3 border rounded-md cursor-pointer hover:bg-gray-50 {{ in_array($item->id, array_column($selectedItems, 'id')) ? 'bg-blue-50 border-blue-200' : '' }}">
                                 <div class="flex justify-between items-center">
-                                    <span>{{ $item->name }}</span>
+                                    <div>
+                                        <span>{{ $item->name }}</span>
+                                        @if($item->size)<span class="ml-2 text-xs text-gray-400">{{ $item->size }}</span>@endif
+                                    </div>
                                     <span class="text-sm {{ $item->quantity > 0 ? 'text-green-600' : 'text-red-600' }}">
                                         Qty: {{ $item->quantity }}
                                     </span>
@@ -243,6 +246,12 @@
                             class="w-full p-2 border rounded-md focus:ring-blue-500 focus:border-blue-500">
                         @error('newItem.brand') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
                     </div>
+                </div>
+    
+                <div>
+                    <input type="text" wire:model="newItem.size" placeholder="Size (e.g. 1L, 500ml, Large)" 
+                        class="w-full p-2 border rounded-md focus:ring-blue-500 focus:border-blue-500">
+                    @error('newItem.size') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
                 </div>
     
                 <div>

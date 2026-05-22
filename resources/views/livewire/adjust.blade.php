@@ -100,14 +100,10 @@
                                     @endif
                                     <span class="text-gray-900 text-sm sm:text-base">{{ $item->name }}</span>
                                     
-                                    <div> <span class="text-gray-900 text-sm sm:text-base">
-                                        <span
-                                         {{-- class="max-sm:hidden" --}}
-                                         >
-                                            Qty:
-                                        </span>
-                                         <span> {{ $item->quantity }}</span>
-                                    </span></div>
+                                    <div class="text-sm text-gray-600">
+                                        <span>Qty: {{ $item->quantity }}</span>
+                                        @if($item->size)<span class="ml-2 text-gray-400">| {{ $item->size }}</span>@endif
+                                    </div>
                                 </div>
                             
                                 <!-- Quantity (hidden on mobile) -->
@@ -226,6 +222,12 @@
                                 class="w-full p-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
                             @error('newItem.brand') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
                         </div>
+                    </div>
+        
+                    <div>
+                        <input type="text" wire:model="newItem.size" placeholder="Size (e.g. 1L, 500ml, Large)" 
+                            class="w-full p-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+                        @error('newItem.size') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
                     </div>
         
                     <div>

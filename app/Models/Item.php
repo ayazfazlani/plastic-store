@@ -24,6 +24,7 @@ class Item extends Model
         'price',
         'type',
         'brand',
+        'size',
         'quantity'
     ];
 

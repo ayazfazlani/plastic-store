@@ -41,6 +41,7 @@ class Adjust extends Component
             'price' => '',
             'type' => '',
             'brand' => '',
+            'size' => '',
             'image' => null,
             'quantity' => 0,
         ];
@@ -107,6 +108,7 @@ class Adjust extends Component
             'newItem.price' => 'nullable|numeric|min:0',
             'newItem.type' => 'nullable|string|max:255',
             'newItem.brand' => 'nullable|string|max:255',
+            'newItem.size' => 'nullable|string|max:255',
             'newItem.quantity' => 'required|numeric|min:0',
             'newItem.image' => 'nullable|image|max:3072',
         ];
